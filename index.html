@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="./styles.css">
+
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+  <body>
+    <header>
+      <h1>Splitter</h1>      
+      <img alt="Splitter logo" src="./images/logo.svg" />
+    </header>
+
+    <main>
+      <section class="user-params">
+
+        <div>
+          <label id="bill-label" for="bill" class="input-label">Bill<span class="error invisible">Can't be zero</span></label>
+          <input id="bill" class="bill number-input" type="number" placeholder="0" pattern="^\d*(\.\d{0,2})?$">
+        </div>
+
+        <div>
+          <span class="input-label">Select Tip %</span>
+          
+          <div class="button-layout">
+            <input id="perc5" class="percentage" type="radio" name="percentage" placeholder="0.0">
+            <label for="perc5" class="percentage-label">5%</label>
+            <input id="perc10" class="percentage" type="radio" name="percentage">
+            <label for="perc10" class="percentage-label">10%</label>
+            <input id="perc15" class="percentage" type="radio" name="percentage">
+            <label for="perc15" class="percentage-label">15%</label>
+            <input id="perc25" class="percentage" type="radio" name="percentage">
+            <label for="perc25" class="percentage-label">25%</label>
+            <input id="perc50" class="percentage" type="radio" name="percentage">
+            <label for="perc50" class="percentage-label">50%</label>
+            
+            <input id="percCust" class="custom-percentage number-input" min="0" max="100" type="number" name="custom-percentage" placeHolder="Custom">
+            <label for="percCust" class="error">Not a valid number</label>
+          </div>
+        </div>
+
+        <div>
+          
+          <label for="no-people" id="no-people-error" class="input-label">Number of People<span class="error invisible">Can't be zero</span></label>       
+          <input id="no-people" name="no-people" class="no-people number-input" type="numbrt" placeholder="1">
+        </div>
+      </section>
+
+      <section class="calc">
+          <div class="per-person">
+            <div>
+              <span class="input-label">Tip Amount</span>
+              <p class="person">/ person</p>
+            </div>
+            <p id="tip-amount">$0.00</p>
+            <div>
+              <span class="input-label">Total</span>
+              <p class="person">/ person</p>
+            </div>
+            <p id="total-amount">$0.00</p>
+          </div>
+        
+          <button class="reset reset-off">Reset</button>
+      </section>    
+  </main>
+    
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/rokandic" target="_blank">Rok Andic</a>.
+  </footer>    
+
+  <script src="./calculator.js"></script>
+
+  </body>
+</html>

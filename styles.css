@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+*, 
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --strong-cyan: hsl(172, 67%, 45%);
+  
+  --very-dark-cyan: hsl(183, 100%, 15%);
+  --dark-grayish-cyan: hsl(186, 14%, 43%);
+  --grayish-cyan: hsl(184, 14%, 56%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --very-light-grayish-cyan: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+
+  --reddish: #C14838;
+  --medium-cyan: #9FE8DF;
+
+}
+
+html {
+  font-size: 1rem;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+
+  background-color: var(--light-grayish-cyan);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 2rem;
+}
+
+h1 {
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  clip-path: inset(0%);
+}
+
+.invisible {
+  visibility: hidden !important;
+}
+
+/* MAIN CALCULATOR */
+main {
+  max-width: 23.5rem;
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--white);
+
+  padding: 2rem 1.5rem;
+  border-radius: 1.5rem;
+}
+
+/* USER PARAMETERS */
+.user-params {
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;  
+  gap: 2rem;
+}
+
+.user-params > * {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.input-label {
+  font-size: 0.95rem;  
+  letter-spacing: 0.025rem;
+  display: block;
+
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-params .input-label {
+  color: var(--dark-grayish-cyan);
+}
+
+.percentage:checked + label {
+  background-color: var(--strong-cyan);
+}
+
+.customPercentageChecked {
+  background-color: var(--strong-cyan) !important;
+  color: var(--white) !important;
+}
+
+.customPercentageChecked::placeholder {
+  color: var(--white) !important;
+}
+
+.number-input {
+  background-color: var(--very-light-grayish-cyan);
+  border: 0;
+  height: 3rem;
+  border-radius: 5px;
+  text-align: end;
+  font-size: 1.5rem;
+  padding: 0 1rem;
+  color: var(--very-dark-cyan);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-repeat: no-repeat;
+  background-position: left 1rem top 50%;  
+
+  font-weight: bold;
+  font-family: "Space Mono", monospace;
+}
+
+.bill {
+  background-image: url(./images/icon-dollar.svg);
+}
+
+.no-people {
+  background-image: url(./images/icon-person.svg);
+}
+
+.number-input::placeholder {
+  color: var(--grayish-cyan);
+  opacity: 75%;
+}
+
+.number-input:focus {
+  outline: var(--strong-cyan) solid 2px;
+}
+
+.button-layout {  
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 1rem; 
+  margin-top: 0.5rem; 
+}
+
+.percentage-label {
+  user-select: none;
+  background-color: var(--very-dark-cyan);
+  color: var(--white);
+  
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;  
+  height: 3rem;
+  line-height: 3rem;
+
+  border-radius: 5px;
+}
+
+.button-layout .error {
+  grid-column: 1 / span 2;  
+  display: none;
+}
+
+.percentage-label:hover {
+  background-color: var(--medium-cyan);
+  color: var(--very-dark-cyan);
+  cursor: pointer;
+}
+
+.custom-percentage {
+  width: 100%;
+}
+
+.percentage {
+  display: none;
+}
+
+.error {
+  color: var(--reddish);
+  text-align: end;
+  font-weight: bold;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  appearance: textfield;
+}
+
+/* CALCULATED TIP */
+.calc {
+  margin-top: 2rem;
+  background-color: var(--very-dark-cyan);
+  border-radius: 10px;
+  padding: 2.5rem 1.5rem 1.5rem;   
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.per-person {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 1rem;
+}
+
+.calc .input-label {
+  color: var(--very-light-grayish-cyan);
+}
+
+.person {
+  color: var(--grayish-cyan);
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+#tip-amount, #total-amount {
+  color: var(--strong-cyan);
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: end;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+}
+
+.reset {
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan); 
+  border: 0;
+  border-radius: 5px;
+  height: 3rem;
+  
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-family: "Space mono", monospace;
+  font-weight: bold;
+}
+
+.reset:hover {
+  cursor: pointer;
+}
+
+.reset-off {
+  opacity: 30%;
+  cursor: not-allowed !important;
+}
+
+
+
+/* FOOTER */
+.attribution { 
+  font-size: 0.8rem; 
+  text-align: center; 
+}
+
+.attribution a { 
+  color: var(--very-dark-cyan);
+  font-weight: bold;
+}
