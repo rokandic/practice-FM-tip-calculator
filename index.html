@@ -12,7 +12,7 @@
   <body>
     <header>
       <h1>Splitter</h1>      
-      <img alt="Splitter logo" src="./images/logo.svg" />
+      <img alt="Splitter logo" class="logo" src="./images/logo.svg" />
     </header>
 
     <main>
@@ -20,33 +20,33 @@
 
         <div>
           <label id="bill-label" for="bill" class="input-label">Bill<span class="error invisible">Can't be zero</span></label>
-          <input id="bill" class="bill number-input" type="number" placeholder="0" pattern="^\d*(\.\d{0,2})?$">
+          <input required id="bill" class="bill number-input" type="number" min=0 placeholder="0" pattern="^\d*(\.\d{0,2})?$">
         </div>
 
         <div>
           <span class="input-label">Select Tip %</span>
           
           <div class="button-layout">
-            <input id="perc5" class="percentage" type="radio" name="percentage" placeholder="0.0">
-            <label for="perc5" class="percentage-label">5%</label>
-            <input id="perc10" class="percentage" type="radio" name="percentage">
-            <label for="perc10" class="percentage-label">10%</label>
-            <input id="perc15" class="percentage" type="radio" name="percentage">
-            <label for="perc15" class="percentage-label">15%</label>
-            <input id="perc25" class="percentage" type="radio" name="percentage">
-            <label for="perc25" class="percentage-label">25%</label>
-            <input id="perc50" class="percentage" type="radio" name="percentage">
-            <label for="perc50" class="percentage-label">50%</label>
+            <input id="perc5" class="percentage" type="radio" name="percentage" value="5">
+            <label for="perc5" tabindex="1" class="percentage-label">5%</label>
+            <input id="perc10" class="percentage" type="radio" name="percentage" value="10">
+            <label for="perc10" tabindex="2" class="percentage-label">10%</label>
+            <input id="perc15" class="percentage" type="radio" name="percentage" value="15">
+            <label for="perc15" tabindex="3" class="percentage-label">15%</label>
+            <input id="perc25" class="percentage" type="radio" name="percentage" value="25">
+            <label for="perc25" tabindex="4" class="percentage-label">25%</label>
+            <input id="perc50"  class="percentage" type="radio" name="percentage" value="50">
+            <label for="perc50" tabindex="5" class="percentage-label">50%</label>
             
-            <input id="percCust" class="custom-percentage number-input" min="0" max="100" type="number" name="custom-percentage" placeHolder="Custom">
-            <label for="percCust" class="error">Not a valid number</label>
+            <input id="perc-cust" class="custom-percentage number-input" min="0" max="100" type="number" name="custom-percentage" placeHolder="Custom">
+            <label id="perc-cust-label" for="perc-cust" class="error">Can't be a negative number</label>
           </div>
         </div>
 
         <div>
           
-          <label for="no-people" id="no-people-error" class="input-label">Number of People<span class="error invisible">Can't be zero</span></label>       
-          <input id="no-people" name="no-people" class="no-people number-input" type="numbrt" placeholder="1">
+          <label id="no-people-label" for="no-people" id="no-people-error" class="input-label">Number of People<span class="error invisible">Can't be zero</span></label>       
+          <input required id="no-people" name="no-people" class="no-people number-input" type="number" placeholder="0">
         </div>
       </section>
 
@@ -54,22 +54,24 @@
           <div class="per-person">
             <div>
               <span class="input-label">Tip Amount</span>
-              <p class="person">/ person</p>
+              <span class="person">/ person</span>
             </div>
-            <p id="tip-amount">$0.00</p>
+            <span id="tip-amount">$0.00</span>
+            
             <div>
               <span class="input-label">Total</span>
-              <p class="person">/ person</p>
+              <span class="person">/ person</span>
             </div>
-            <p id="total-amount">$0.00</p>
+            <span id="total-amount">$0.00</span>
           </div>
         
-          <button class="reset reset-off">Reset</button>
+          <button disabled id="reset" class="reset">Reset</button>
       </section>    
   </main>
     
   <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    <br />
     Coded by <a href="https://github.com/rokandic" target="_blank">Rok Andic</a>.
   </footer>    
 

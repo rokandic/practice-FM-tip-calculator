@@ -40,6 +40,11 @@ body {
   justify-content: center;
   min-height: 100vh;
   gap: 2rem;
+  padding: 1rem 0;
+}
+
+.logo {
+  width: 5.4rem;
 }
 
 h1 {
@@ -99,11 +104,11 @@ main {
 
 .customPercentageChecked {
   background-color: var(--strong-cyan) !important;
-  color: var(--white) !important;
+  color: var(--very-dark-cyan) !important;
 }
 
 .customPercentageChecked::placeholder {
-  color: var(--white) !important;
+  color: var(--very-dark-cyan) !important;
 }
 
 .number-input {
@@ -171,14 +176,28 @@ main {
   display: none;
 }
 
+.display-block {
+  display: block !important;
+}
+
 .percentage-label:hover {
   background-color: var(--medium-cyan);
   color: var(--very-dark-cyan);
   cursor: pointer;
 }
 
+.percentage:checked + label  {
+  color: var(--very-dark-cyan);
+}
+
 .custom-percentage {
   width: 100%;
+}
+
+.custom-percentage::placeholder {
+  color: var(--dark-grayish-cyan); 
+  opacity: 100%;
+  font-size: 1.4rem;
 }
 
 .percentage {
@@ -218,6 +237,7 @@ input[type=number] {
   display: grid;
   grid-template-columns: repeat(2,1fr);
   gap: 1rem;
+
 }
 
 .calc .input-label {
@@ -235,14 +255,10 @@ input[type=number] {
   font-weight: bold;
   font-size: 2rem;
   text-align: end;
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: end;
+  line-height: 2rem;
 }
 
-.reset {
+#reset {
   background-color: var(--strong-cyan);
   color: var(--very-dark-cyan); 
   border: 0;
@@ -255,24 +271,84 @@ input[type=number] {
   font-weight: bold;
 }
 
-.reset:hover {
+#reset:hover {
   cursor: pointer;
 }
 
-.reset-off {
+#reset:disabled {
   opacity: 30%;
   cursor: not-allowed !important;
 }
-
-
 
 /* FOOTER */
 .attribution { 
   font-size: 0.8rem; 
   text-align: center; 
+  max-width: 20rem;
 }
 
 .attribution a { 
   color: var(--very-dark-cyan);
   font-weight: bold;
+}
+
+/* DESKTOP */
+@media screen and (min-width: 62rem) {
+  body {
+    gap: 5rem;
+  }
+
+  main {
+    min-width: 57.5rem;
+    min-height: 30rem;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 2.5rem;
+    padding: 2rem 2rem 2rem 2.5rem;
+  }
+
+  /* USER PARAMETERS */
+  .user-params {
+    width: 100%;
+    padding: 1rem 0.5rem;
+    gap: 2.5rem;
+  }
+
+  .user-params > * {
+    gap: 0.5rem;
+  }
+
+  .button-layout {
+    grid-template-columns: repeat(3,1fr);
+  }
+
+  .button-layout .error {
+    grid-column: 1 / span 3;  
+    display: none;
+  }
+
+  /* CALCULATED TIP */
+  .calc {
+    width: 95%;
+    margin-top: 0;
+    padding: 3.5rem 2.5rem 2.5rem;   
+    border-radius: 15px;
+  }
+
+  .per-person {
+    gap: 3rem;
+  }
+
+  #tip-amount, #total-amount {
+    font-size: 2.9rem;
+  }
+
+  /* FOOTER */
+  .attribution {    
+    max-width: 100%;
+  }
+
+  .attribution > br {
+    display: none;
+  }
 }
